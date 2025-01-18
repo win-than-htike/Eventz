@@ -40,3 +40,9 @@ cable:
   adapter: postgresql
   encoding: unicode
   url: <%= ENV['DATABASE_URL'] %>
+
+cache:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>

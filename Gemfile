@@ -7,7 +7,7 @@ gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 
-gem "bootstrap", "~> 5.1.3"
+gem "bootstrap", "~> 5.3.3"
 
 # Use sqlite3 as the database for Active Record in development and test
 group :development, :test do

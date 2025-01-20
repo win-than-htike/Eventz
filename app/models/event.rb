@@ -38,7 +38,7 @@ class Event < ApplicationRecord
 private
 
   def acceptable_image
-    return unlesss main_image.attached?
+    return unless main_image.attached?
     unless main_image.blob.byte_size <= 10.megabyte
       errors.add(:main_image, "is too big")
     end

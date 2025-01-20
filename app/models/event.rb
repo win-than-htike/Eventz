@@ -16,7 +16,7 @@ class Event < ApplicationRecord
   validates :capacity, numericality:
                       { only_integer: true, greater_than: 0 }
 
-  validates :acceptable_image
+  validate :acceptable_image
 
   scope :past, -> { where("starts_at < ?", Time.now).order("starts_at") }
   scope :upcoming, -> { where("starts_at > ?", Time.now).order("starts_at") }

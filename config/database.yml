@@ -25,17 +25,19 @@ test:
 # is mounted as a persistent Docker volume in config/deploy.yml.
 production:
   primary: &production_primary
-      <<: *default
-      adapter: postgresql
-      encoding: unicode
-      url: <%= ENV['DATABASE_URL'] %>
+    adapter: postgresql
+    encoding: unicode
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    url: <%= ENV['DATABASE_URL'] %>
   
   queue:
     <<: *production_primary
-    migrations_paths: db/queue_migrate
+    schema_file: db/queue_schema.rb
     
   cable:
     <<: *production_primary
+    schema_file: db/cable_schema.rb
     
   cache:
     <<: *production_primary
+    schema_file: db/cache_schema.rb

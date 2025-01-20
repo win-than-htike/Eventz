@@ -29,13 +29,3 @@ production:
       adapter: postgresql
       encoding: unicode
       url: <%= ENV['DATABASE_URL'] %>
-  
-  queue:
-    <<: *production_primary
-    migrations_paths: db/queue_migrate
-    
-  cable:
-    <<: *production_primary
-    
-  cache:
-    <<: *production_primary
